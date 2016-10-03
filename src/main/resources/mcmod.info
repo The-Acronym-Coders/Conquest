@@ -1,0 +1,16 @@
+[
+{
+  "modid": "conquest",
+  "name": "Conquest",
+  "description": "Placeholder text",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["shinoow"],
+  "credits": "Placeholder Credits",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
