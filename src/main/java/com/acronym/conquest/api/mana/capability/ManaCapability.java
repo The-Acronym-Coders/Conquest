@@ -1,4 +1,4 @@
-package com.acronym.conquest.capability.mana;
+package com.acronym.conquest.api.mana.capability;
 
 public class ManaCapability implements IManaCapability {
 

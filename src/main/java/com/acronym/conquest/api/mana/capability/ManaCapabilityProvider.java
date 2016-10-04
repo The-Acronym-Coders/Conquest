@@ -1,4 +1,4 @@
-package com.acronym.conquest.capability.mana;
+package com.acronym.conquest.api.mana.capability;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
