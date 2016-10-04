@@ -40,7 +40,7 @@ public class Conquest {
         long time = System.currentTimeMillis();
 
         MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
-        CapabilityManager.INSTANCE.register(IManaCapability.class, ManaCapabilityStorage.instance, ManaCapability.class);
+        CapabilityManager.INSTANCE.register(IManaCapability.class, ManaCapabilityStorage.INSTANCE, ManaCapability.class);
 
         time = (System.currentTimeMillis() - time);
         totalTime += time;

@@ -9,35 +9,31 @@ import net.minecraftforge.common.util.INBTSerializable;
 
 public class ManaCapabilityProvider implements ICapabilityProvider, INBTSerializable<NBTBase> {
 
-	@CapabilityInject(IManaCapability.class)
-	public static final Capability<IManaCapability> MANA_CAP = null;
+    @CapabilityInject(IManaCapability.class)
+    public static final Capability<IManaCapability> MANA_CAP = null;
 
-	private IManaCapability capability;
+    private IManaCapability capability;
 
-	public ManaCapabilityProvider(){
-		capability = new ManaCapability();
-	}
+    public ManaCapabilityProvider() {
+        capability = new ManaCapability();
+    }
 
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        return capability == MANA_CAP;
+    }
 
-		return capability == MANA_CAP;
-	}
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        if (capability == MANA_CAP) {
+            return (T) this.capability;
+        }
+        return null;
+    }
 
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+    public NBTBase serializeNBT() {
+        return ManaCapabilityStorage.INSTANCE.writeNBT(MANA_CAP, capability, null);
+    }
 
-		if(capability == MANA_CAP){
-
-			return (T) this.capability;
-		}
-
-		return null;
-	}
-
-	public NBTBase serializeNBT() {
-		return ManaCapabilityStorage.instance.writeNBT(MANA_CAP, capability, null);
-	}
-
-	public void deserializeNBT(NBTBase nbt) {
-		ManaCapabilityStorage.instance.readNBT(MANA_CAP, capability, null, nbt);
-	}
+    public void deserializeNBT(NBTBase nbt) {
+        ManaCapabilityStorage.INSTANCE.readNBT(MANA_CAP, capability, null, nbt);
+    }
 }

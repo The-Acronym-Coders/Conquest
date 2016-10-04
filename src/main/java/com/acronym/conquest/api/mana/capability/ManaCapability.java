@@ -2,39 +2,39 @@ package com.acronym.conquest.api.mana.capability;
 
 public class ManaCapability implements IManaCapability {
 
-	private float mana;
+    private float mana;
 
-	public float getMana() {
+    public float getMana() {
 
-		return mana;
-	}
+        return mana;
+    }
 
-	public void addMana(float mana) {
-		this.mana += mana;
-		if(this.mana > getMaxMana()) this.mana = getMaxMana();
-	}
+    public void addMana(float mana) {
+        this.mana += mana;
+        if (this.mana > getMaxMana()) this.mana = getMaxMana();
+    }
 
-	public void consumeMana(float mana) {
-		this.mana -= mana;
-		if(this.mana <= 0) this.mana = 0;
-	}
+    public void consumeMana(float mana) {
+        this.mana -= mana;
+        if (this.mana < 0) this.mana = 0;
+    }
 
-	public void setMana(float mana) {
-		this.mana = mana;
-	}
+    public void setMana(float mana) {
+        this.mana = mana;
+    }
 
-	public float getMaxMana() {
+    public float getMaxMana() {
 
-		return 1000; //TODO define a maximum in some way
-	}
+        return 1000; //TODO define a maximum in some way
+    }
 
-	public void resetMana() {
-		mana = 0;
-	}
+    public void resetMana() {
+        setMana(0);
+    }
 
-	public void copy(IManaCapability cap) {
-		this.mana = cap.getMana();
-	}
+    public void copy(IManaCapability cap) {
+        setMana(cap.getMana());
+    }
 
 
 }
